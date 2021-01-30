@@ -21,6 +21,7 @@ public class UserController {
 
     @GetMapping("/user/{id}")
     public ResponseEntity<Object> getUser(@PathVariable("id") int id) {
+        log.info("This is for testing");
         Optional<User> user = userService.findById(id);
         if (user.isPresent())
             return new ResponseEntity<>(user.get(), HttpStatus.OK);
